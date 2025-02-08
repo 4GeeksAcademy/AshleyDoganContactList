@@ -12,10 +12,11 @@ const Contacts = () => {
   return (
     <>
       <div>
-        {store.contacts.map((contact) => console.log(contact))}
-        <ContactCard />
-        <ContactCard />
+        {store.contacts.map((contact) => {
+          return <p>{contact.name}</p>;
+        })}
       </div>
+      <ContactCard />
     </>
   );
 };

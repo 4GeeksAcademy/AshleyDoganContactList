@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           "https://playground.4geeks.com/contact/agendas/ashleydogan/contacts"
         );
         if (!response.ok) {
-          throw new Error(response.status, response.statusTest);
+          throw new Error(response.status, response.statusText);
         }
         const data = await response.json();
         setStore({ contacts: data.contacts });
