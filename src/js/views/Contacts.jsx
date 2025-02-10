@@ -5,18 +5,24 @@ import { Context } from "../store/appContext.js";
 const Contacts = () => {
   const { store, actions } = useContext(Context);
 
-  useEffect(() => {
-    actions.loadAgendaContacts();
-  }, []);
+  // useEffect(() => {
+  //   actions.loadAgendaContacts();
+  // }, []);
 
   return (
     <>
       <div>
         {store.contacts.map((contact) => {
-          return <p>{contact.name}</p>;
+          return (
+            <ContactCard
+              name={contact.name}
+              phone={contact.phone}
+              email={contact.email}
+              address={contact.address}
+            />
+          );
         })}
       </div>
-      <ContactCard />
     </>
   );
 };

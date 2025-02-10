@@ -37,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           throw new Error(response.status, response.statusText);
         }
         const data = await response.json();
+        console.log(data);
         setStore({ contacts: data.contacts });
       },
 

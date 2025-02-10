@@ -1,16 +1,16 @@
 import React from "react";
 
-const ContactCard = () => {
+const ContactCard = ({ name, phone, address, email }) => {
   return (
     <>
       <div>
         <div className="contact">
           <img />
           <div className="contact-info">
-            <p className="contact-name">Ashley Dogan</p>
-            <p className="contact-phone">555-555-5555</p>
-            <p className="contact-address">555 Main St</p>
-            <p className="contact=email">ashdog@gmail.com</p>
+            <p className="contact-name">{name}</p>
+            <p className="contact-phone">{phone}</p>
+            <p className="contact-address">{address}</p>
+            <p className="contact-email">{email}</p>
           </div>
         </div>
       </div>
