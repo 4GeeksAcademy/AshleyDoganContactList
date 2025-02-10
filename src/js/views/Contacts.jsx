@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import ContactCard from "../component/contactCard.jsx";
 import { Context } from "../store/appContext.js";
 
+
 const Contacts = () => {
   const { store, actions } = useContext(Context);
 
@@ -14,7 +15,9 @@ const Contacts = () => {
       <div>
         {store.contacts.map((contact) => {
           return (
-            <ContactCard
+            
+
+            <ContactCard key={contact.id}
               name={contact.name}
               phone={contact.phone}
               email={contact.email}
