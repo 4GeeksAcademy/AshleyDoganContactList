@@ -5,7 +5,7 @@ const ContactCard = ({ name, phone, address, email }) => {
     <>
       <div>
         <div className="contact">
-          <img />
+          <img src="https://placedog.net/100/100" />
           <div className="contact-info">
             <p className="contact-name">{name}</p>
             <p className="contact-phone">{phone}</p>

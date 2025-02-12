@@ -45,6 +45,16 @@ const getState = ({ getStore, getActions, setStore }) => {
       // POST new contacts through the API
       // PUT updated contacts through the API
       // DELETE contacts through the API
+      deleteContact: async (contactId) => {
+        const response = await fetch(`https://playground.4geeks.com/contact/agendas/ashleydogan/contacts/${contactId}`, {
+          method: "DELETE",
+        });
+        if(!response.ok) {
+          throw new Error(response.status, response.statusText)
+        }
+        const data = await response.json();
+        setStore({ contacts: data.contacts });
+      }
     },
   };
 };
