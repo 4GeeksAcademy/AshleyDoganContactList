@@ -4,7 +4,6 @@ const getState = ({ getStore, getActions, setStore }) => {
       contacts: [],
     },
     actions: {
-      // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");
       },
@@ -37,12 +36,23 @@ const getState = ({ getStore, getActions, setStore }) => {
           throw new Error(response.status, response.statusText);
         }
         const data = await response.json();
-        console.log(data);
         setStore({ contacts: data.contacts });
       },
 
       // You will need function to:
       // POST new contacts through the API
+      createNewContact: async (contactObject) => {
+        const response = await fetch("https://playground.4geeks.com/contact/agendas/ashleydogan/contacts", {
+          method: "POST",
+          body: JSON.stringify(contactObject),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+        if(!response.ok) {
+          throw new Error(response.status, response.statusText)
+        } 
+      },
       // PUT updated contacts through the API
       // DELETE contacts through the API
       deleteContact: async (contactId) => {
@@ -52,8 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         if(!response.ok) {
           throw new Error(response.status, response.statusText)
         }
-        const data = await response.json();
-        setStore({ contacts: data.contacts });
+        getActions().loadAgendaContacts();
       }
     },
   };

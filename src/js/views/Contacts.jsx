@@ -14,9 +14,8 @@ const Contacts = () => {
       <div>
         {store.contacts.map((contact) => {
           return (
-            <>
+            <div key={contact.id}>
               <ContactCard
-                key={contact.id}
                 name={contact.name}
                 phone={contact.phone}
                 email={contact.email}
@@ -26,7 +25,7 @@ const Contacts = () => {
               <button onClick={() => actions.deleteContact(contact.id)}>
                 Delete
               </button>
-            </>
+            </div>
           );
         })}
       </div>
