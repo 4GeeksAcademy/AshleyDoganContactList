@@ -6,9 +6,6 @@ import "../../styles/home.css";
 export const Home = () => (
   <div className="text-center mt-5">
     <div>
-      <AddContact />
-    </div>
-    <div>
       <Contacts />
     </div>
   </div>
