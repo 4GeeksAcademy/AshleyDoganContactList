@@ -4,3 +4,25 @@ img {
   height: 150px;
   width: 150px;
 }
+
+.card {
+  margin: 20px auto auto auto;
+  width: 700px;
+}
+
+.contact-info {
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
+.buttons {
+  margin: auto;
+}
+
+.navbar {
+  padding: 10px;
+}
+
+#update-button {
+  margin: 10px;
+}

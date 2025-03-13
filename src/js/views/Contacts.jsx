@@ -26,11 +26,16 @@ const Contacts = () => {
                       address={contact.address}
                     />
                   </div>
-                  <div className="col-2">
+                  <div className="buttons col-4">
                     <Link to={"/update-contact/" + contact.id}>
-                      <button>Update</button>
+                      <button className="btn btn-secondary" id="update-button">
+                        Update
+                      </button>
                     </Link>
-                    <button onClick={() => actions.deleteContact(contact.id)}>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={() => actions.deleteContact(contact.id)}
+                    >
                       Delete
                     </button>
                   </div>

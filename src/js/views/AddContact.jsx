@@ -1,16 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 const AddContact = () => {
+  const { store, actions } = useContext(Context);
   const [contact, setContact] = useState({
     name: "",
     phone: "",
     address: "",
     email: "",
-    id: "",
   });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(contact),
+    };
+    let response = await fetch(
+      "https://playground.4geeks.com/contact/agendas/ashleydogan/contacts",
+      options
+    );
+    if (response.status !== 201) {
+      alert(
+        "we were unable to add your contact at this time, please try again later"
+      );
+    } else {
+      let data = await response.json();
+      console.log(data);
+      actions.loadAgendaContacts();
+      setContact({
+        name: "",
+        phone: "",
+        address: "",
+        email: "",
+      });
+      alert("Your contact was successfully added");
+    }
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label for="fullName" className="form-label">
             Full Name
@@ -73,6 +107,7 @@ const AddContact = () => {
           Submit
         </button>
       </form>
+      <Link to="/">Return home</Link>
     </>
   );
 };
